@@ -1,0 +1,57 @@
+:root{--turf:#14342a;--fairway:#2d6a4f;--paper:#f1f4f0;--ink:#16211b;--line:#d5ddd6;
+--birdie:#c8312b;--eagle:#d99a00;--bogey:#2b5c8a;--r:12px}
+@media (prefers-color-scheme:dark){:root{--paper:#0f1713;--ink:#e8efe9;--line:#27382f}}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.4 system-ui,-apple-system,sans-serif;
+padding-bottom:calc(72px + env(safe-area-inset-bottom))}
+header{background:var(--turf);color:#fff;padding:calc(12px + env(safe-area-inset-top)) 16px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+h1{margin:0;font:700 26px "Barlow Condensed",system-ui,sans-serif;letter-spacing:.3px}
+#alerts{background:#ffffff22;color:#fff;border:0;border-radius:99px;padding:8px 12px;font-size:13px}
+#mode{background:#fff3cd;color:#5c4400;padding:8px 16px;font-size:13px}
+main{max-width:640px;margin:0 auto;padding:16px}
+nav{position:fixed;inset:auto 0 0 0;display:flex;background:var(--turf);padding-bottom:env(safe-area-inset-bottom)}
+nav button{flex:1;background:none;border:0;color:#ffffffa8;padding:16px 4px;font:600 15px system-ui;border-top:3px solid transparent}
+nav button.on{color:#fff;border-top-color:#fff}
+#board{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+#board li{display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:2px 10px;background:color-mix(in srgb,var(--paper) 60%,#fff);border:1px solid var(--line);border-radius:var(--r);padding:14px}
+#board li:first-child{border-color:var(--fairway);border-width:2px}
+.pos{font:700 28px "Barlow Condensed",sans-serif;color:var(--fairway)}
+.name{font-weight:700;font-size:18px}
+.topar{grid-row:span 2;font:700 42px "Barlow Condensed",sans-serif}
+.topar.u{color:var(--birdie)}.topar.o{color:var(--bogey)}
+.sub{grid-column:2;font-size:13px;opacity:.7}
+.scroll{overflow-x:auto;margin-bottom:16px;border:1px solid var(--line);border-radius:var(--r)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-variant-numeric:tabular-nums}
+th,td{padding:8px 4px;text-align:center;border-bottom:1px solid var(--line);font-size:14px}
+th:first-child{text-align:left;padding-left:10px;position:sticky;left:0;background:var(--paper)}
+tr.par td,tr.par th{font-weight:600;background:color-mix(in srgb,var(--fairway) 12%,var(--paper))}
+.m{display:inline-grid;place-items:center;width:26px;height:26px;font-weight:700;font-size:13px}
+.m.birdie{border:2px solid var(--birdie);border-radius:50%;color:var(--birdie)}
+.m.eagle{border:2px solid var(--eagle);border-radius:50%;color:var(--eagle);outline:2px solid var(--eagle);outline-offset:1px}
+.m.bogey{border:2px solid var(--bogey);color:var(--bogey)}
+.m.dbl{border:2px solid var(--bogey);color:#fff;background:var(--bogey)}
+.key{font-size:13px;display:flex;flex-wrap:wrap;gap:6px 10px;align-items:center;margin-bottom:12px}
+.hint{margin:0 0 12px;opacity:.75}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.seg button{padding:12px;border-radius:var(--r);border:2px solid var(--line);background:none;color:inherit;font:600 16px system-ui}
+.seg button.on{border-color:var(--fairway);background:var(--fairway);color:#fff}
+#chips{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;margin-bottom:12px}
+.chip{aspect-ratio:1;border-radius:8px;border:1.5px solid var(--line);background:none;color:inherit;font:600 14px system-ui;padding:0}
+.chip.done{background:color-mix(in srgb,var(--fairway) 22%,transparent)}
+.chip.on{border-color:var(--ink);border-width:2.5px}
+#holeinfo{font:700 24px "Barlow Condensed",sans-serif;text-align:center;margin:6px 0}
+.step{display:flex;justify-content:center;align-items:center;gap:28px;margin:6px 0 16px}
+.step button{width:64px;height:64px;border-radius:50%;border:2px solid var(--fairway);background:none;color:var(--fairway);font-size:34px}
+.step div{text-align:center;min-width:110px}
+#strokes{font:700 72px/1 "Barlow Condensed",sans-serif;display:block}
+#verdict{font-size:15px;font-weight:600}
+.primary,.ghost{display:block;width:100%;padding:16px;border-radius:var(--r);font:700 17px system-ui;margin-bottom:10px}
+.primary{background:var(--fairway);color:#fff;border:0}
+.ghost{background:none;border:1.5px solid var(--line);color:inherit;font-weight:600}
+#toasts{position:fixed;top:calc(8px + env(safe-area-inset-top));left:8px;right:8px;z-index:9;display:grid;gap:8px;pointer-events:none}
+.toast{background:#fff;color:#16211b;border-left:6px solid var(--birdie);border-radius:10px;padding:12px 14px;font-weight:600;box-shadow:0 6px 24px #0004;animation:in .3s}
+.toast.eagle{border-color:var(--eagle)}
+@keyframes in{from{transform:translateY(-120%)}}
+@media (prefers-reduced-motion:reduce){.toast{animation:none}}
+button:focus-visible{outline:3px solid var(--eagle);outline-offset:2px}
+[hidden]{display:none!important}

@@ -1,0 +1,6 @@
+{
+  "rules": {
+    "scores": { "$team": { "$hole": { ".read": true, ".write": true, ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 15" } } },
+    "events": { ".read": true, ".write": true, ".indexOn": ["ts"] }
+  }
+}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14342a">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Scramble">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<title>Scramble Leaderboard</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>⛳ <span id="title">Scramble</span></h1>
+  <button id="alerts" hidden>🔕 Turn on alerts</button>
+</header>
+<div id="mode" hidden>Test mode: scores save on this phone only. Finish SETUP.md step 3 to share them.</div>
+<div id="toasts" aria-live="polite"></div>
+
+<main>
+  <section id="tab-board"><ol id="board"></ol></section>
+  <section id="tab-card" hidden>
+    <div class="key"><span class="m eagle">2</span> Eagle <span class="m birdie">3</span> Birdie <span class="m bogey">5</span> Bogey <span class="m dbl">6</span> Double+</div>
+    <div class="scroll"><table id="front"></table></div>
+    <div class="scroll"><table id="back"></table></div>
+  </section>
+  <section id="tab-enter" hidden>
+    <p class="hint">Scorekeeper: pick your team, then enter strokes hole by hole.</p>
+    <div id="teams" class="seg"></div>
+    <div id="chips"></div>
+    <div id="holeinfo"></div>
+    <div class="step">
+      <button id="minus" aria-label="One fewer stroke">−</button>
+      <div><b id="strokes">4</b><small id="verdict">Par</small></div>
+      <button id="plus" aria-label="One more stroke">+</button>
+    </div>
+    <button id="save" class="primary">Save score</button>
+    <button id="clear" class="ghost">Clear this hole</button>
+  </section>
+</main>
+
+<nav>
+  <button data-tab="board" class="on">Leaderboard</button>
+  <button data-tab="card">Scorecard</button>
+  <button data-tab="enter">Enter Score</button>
+</nav>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-database-compat.js"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
