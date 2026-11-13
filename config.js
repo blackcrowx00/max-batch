@@ -10,10 +10,13 @@ window.CONFIG = {
 
   // Paste your Firebase web config here (see SETUP.md step 3). Leave databaseURL "" for local test mode.
   firebase: {
-    apiKey: "",
-    authDomain: "",
-    databaseURL: "",
-    projectId: "",
-    appId: ""
+  apiKey: "AIzaSyCuUB8kKzW0uoRuvDQFTpdkzyuCzWEwGAs",
+  authDomain: "max-batch.firebaseapp.com",
+  databaseURL: "https://max-batch-default-rtdb.firebaseio.com",
+  projectId: "max-batch",
+  storageBucket: "max-batch.firebasestorage.app",
+  messagingSenderId: "454878593778",
+  appId: "1:454878593778:web:7a699cc6a3651f5235066b",
+  measurementId: "G-V4CTGZ301L"
   }
 };
